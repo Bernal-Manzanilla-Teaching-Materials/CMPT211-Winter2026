@@ -1,0 +1,251 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Jan 12 22:39:39 2026
+
+@author: bernal
+"""
+import json
+
+# This script generates the CMPT 211 Lab 1 Notebook file.
+
+notebook_content = {
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# CMPT 211: Lab 1 - Git Setup & Python Scripting\n",
+    "\n",
+    "**Welcome to CMPT 211!**\n",
+    "\n",
+    "In this first practical activity, we will cover two fundamental skills:\n",
+    "1.  **Python Scripting:** Writing a script to clean up messy data (Logic).\n",
+    "2.  **Version Control (Git):** Saving that script to a local history on your computer.\n",
+    "\n",
+    "---"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Part 1: The Python Logic (Practice Here)\n",
+    "\n",
+    "Before we work on your local computer, let's test our logic in the browser.\n",
+    "\n",
+    "### The Scenario\n",
+    "You have received a list of names from a user, but the data is \"dirty.\" It contains inconsistent spaces at the beginning and end of the strings.\n",
+    "\n",
+    "**Your Goal:** Write a Python loop that cleans every name in the list."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": None,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# STEP 1: Load the raw data\n",
+    "# Run this cell (Shift+Enter) to define the list.\n",
+    "\n",
+    "raw_data = [\n",
+    "    \"   Alice   \",\n",
+    "    \"Bob\",\n",
+    "    \"  Charlie\",\n",
+    "    \"David   \",\n",
+    "    \"   Eve\"\n",
+    "]\n",
+    "\n",
+    "print(\"Raw data loaded:\", raw_data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### The Task\n",
+    "In the cell below, write a script that:\n",
+    "1.  Iterates (loops) through the `raw_data` list.\n",
+    "2.  Uses the `.strip()` method to remove whitespace from each name.\n",
+    "3.  Prints the cleaned name.\n",
+    "\n",
+    "*Hint: Use a `for` loop.*"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": None,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# STEP 2: Write your cleaning loop here\n",
+    "\n",
+    "# for ... in ...:\n",
+    "#     ..."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "---\n",
+    "## Part 2: Setting up Git Locally (Windows & Mac)\n",
+    "\n",
+    "Now that you understand the code, we need to set up the professional tools on your computer. **Do not run these commands in Colab.** Run them in your computer's terminal.\n",
+    "\n",
+    "### Step A: Open your Terminal\n",
+    "* **Windows Users:** Press `Start`, type **PowerShell**, and open it.\n",
+    "* **Mac Users:** Press `Command + Space`, type **Terminal**, and open it.\n",
+    "\n",
+    "### Step B: Check Git Installation\n",
+    "Type the following command and press Enter:\n",
+    "\n",
+    "```bash\n",
+    "git --version\n",
+    "```\n",
+    "\n",
+    "* **Success:** You see something like `git version 2.x.x`.\n",
+    "* **Failure:** If it says \"command not found\":\n",
+    "    * *Windows:* Download and install [Git for Windows](https://git-scm.com/download/win).\n",
+    "    * *Mac:* A popup should appear asking to install developer tools. Click **Install**.\n",
+    "\n",
+    "### Step C: Configure Identity (One-time Setup)\n",
+    "Git labels every change you make with your name. Run these two commands (replace with your details):\n",
+    "\n",
+    "```bash\n",
+    "git config --global user.name \"Your Actual Name\"\n",
+    "git config --global user.email \"your.email@example.com\"\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "---\n",
+    "## Part 3: Creating Your First Repository\n",
+    "\n",
+    "Follow these steps to create your project folder and track it with Git.\n",
+    "\n",
+    "### 1. Create the Folder\n",
+    "Run these commands in your terminal to create a folder on your Desktop:\n",
+    "\n",
+    "```bash\n",
+    "cd Desktop\n",
+    "mkdir cmpt211_lab1\n",
+    "cd cmpt211_lab1\n",
+    "```\n",
+    "\n",
+    "### 2. Initialize Git\n",
+    "This turns the normal folder into a tracked repository:\n",
+    "\n",
+    "```bash\n",
+    "git init\n",
+    "```\n",
+    "\n",
+    "### 3. Create the Python File\n",
+    "1.  Open your text editor (VS Code, Notepad, TextEdit, etc.).\n",
+    "2.  Copy the code you wrote in **Part 1** of this notebook.\n",
+    "3.  Save the file as `cleaner.py` inside your `cmpt211_lab1` folder.\n",
+    "\n",
+    "### 4. Check Status\n",
+    "Go back to your terminal and check what Git sees:\n",
+    "\n",
+    "```bash\n",
+    "git status\n",
+    "```\n",
+    "*You should see `cleaner.py` in red (Untracked).*\n",
+    "\n",
+    "### 5. Commit (Save) Your Work\n",
+    "Move the file to the staging area and save a snapshot:\n",
+    "\n",
+    "```bash\n",
+    "git add cleaner.py\n",
+    "git commit -m \"Initial commit: Added string cleaning script\"\n",
+    "```\n",
+    "\n",
+    "### 6. Verify History\n",
+    "See your first log entry:\n",
+    "\n",
+    "```bash\n",
+    "git log\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "---\n",
+    "## Part 4: Connecting to GitHub (Optional)\n",
+    "\n",
+    "If you have a GitHub account, you can push your local code to the cloud.\n",
+    "\n",
+    "1.  Go to [github.com/new](https://github.com/new).\n",
+    "2.  Repository name: `cmpt211-lab1`.\n",
+    "3.  **Important:** Do NOT check \"Add README\" or \"Add .gitignore\". Keep it empty.\n",
+    "4.  Click **Create repository**.\n",
+    "5.  Copy the command shown on the next page under \"…or push an existing repository from the command line\". It looks like this:\n",
+    "\n",
+    "```bash\n",
+    "git remote add origin [https://github.com/YOUR_USERNAME/cmpt211-lab1.git](https://github.com/YOUR_USERNAME/cmpt211-lab1.git)\n",
+    "git push -u origin master\n",
+    "```\n",
+    "\n",
+    "*(Note: If `master` fails, try `main` instead).*"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "---\n",
+    "## Solution (Part 1)\n",
+    "\n",
+    "If you got stuck on the Python loop, here is the solution:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": None,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(\"--- Cleaning Data ---\")\n",
+    "\n",
+    "for name in raw_data:\n",
+    "    clean_name = name.strip()\n",
+    "    print(clean_name)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
+
+# Write the file to disk
+file_name = "CMPT211_Lab1_Activity.ipynb"
+with open(file_name, 'w') as f:
+    json.dump(notebook_content, f, indent=2)
+
+print(f"Successfully created {file_name}. You can now upload this to Colab.")
