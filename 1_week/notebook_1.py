@@ -110,7 +110,7 @@ notebook_content = {
     "    * *Windows:* Download and install [Git for Windows](https://git-scm.com/download/win).\n",
     "    * *Mac:* A popup should appear asking to install developer tools. Click **Install**.\n",
     "\n",
-    "### Step C: Configure Identity (One-time Setup)\n",
+    "### Step C:Configure Identity (One-time Setup)\n",
     "Git labels every change you make with your name. Run these two commands (replace with your details):\n",
     "\n",
     "```bash\n",
