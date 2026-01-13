@@ -6,3 +6,19 @@ __pycache__/
 *.csv
 *.DS_Store
 _ADMIN_PRIVATE/
+
+# --- LaTeX Build Files (Add this!) ---
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.snm
+*.nav
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# --- System Files ---
+Thumbs.db

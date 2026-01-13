@@ -1,0 +1,89 @@
+\documentclass{beamer}
+
+% Theme selection - 'Madrid' is clean and professional for academic use
+\usetheme{Madrid}
+\usecolortheme{beaver} % A nice red/grey theme often used in academia
+
+% Metadata
+\title{Introduction to Python}
+\subtitle{CMPT 211: Winter 2026}
+\author{Bernal Manzanilla}
+\institute{Concordia University of Edmonton}
+\date{\today}
+
+\begin{document}
+
+% Title Slide
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% Slide 1: What is Python?
+\begin{frame}{What is Python?}
+    \begin{itemize}
+        \item \textbf{High-level Language:} Python abstracts away complex details of the computer (memory management, pointers).
+        \item \textbf{Interpreted Language:}
+        \begin{itemize}
+            \item Unlike C or C++, Python code is not compiled directly to machine code before execution.
+            \item It is translated into \textit{bytecode} which is then executed by the Python Virtual Machine (PVM).
+            \item This allows for rapid development and interactivity: Read–Eval–Print Loop (REPL).
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Slide 2: The "Need for Speed" (Numerical Backends)
+\begin{frame}{Performance \& Numerical Computing}
+    \begin{block}{The "Glue" Language}
+        Python is famous for being excellent "glue" code. It connects different software components effortlessly.
+    \end{block}
+    
+    \vspace{0.5cm}
+    
+    \textbf{Under the Hood:}
+    \begin{itemize}
+        \item While pure Python can be slower than C++, libraries like \textbf{NumPy} and \textbf{SciPy} bypass this limitation.
+        \item These libraries run highly optimized numerical routines written in \textbf{C} and \textbf{FORTRAN}.
+        \item \textbf{Result:} You get the ease of Python with the speed of compiled languages for heavy math operations.
+    \end{itemize}
+\end{frame}
+
+% Slide 3: Is it Just-In-Time (JIT)?
+\begin{frame}{Is Python JIT Compiled?}
+    \begin{alertblock}{Standard Python (CPython)}
+        The standard version of Python you install is \textbf{not} JIT compiled. It is an interpreter.
+    \end{alertblock}
+    
+    \vspace{0.5cm}
+    
+    \textbf{When is JIT used?}
+    \begin{itemize}
+        \item \textbf{PyPy:} An alternative implementation of Python that uses a JIT compiler to run faster.
+        \item \textbf{Numba:} A library that allows you to JIT compile specific functions in your code to machine code (e.g., using decorators like \texttt{@jit}).
+    \end{itemize}
+\end{frame}
+
+% Slide 4: Programming Paradigms
+\begin{frame}{Two Main Paradigms}
+    Python supports multiple ways to structure code. We will focus on two:
+    
+    \vspace{0.5cm}
+    
+    \begin{enumerate}
+        \item \textbf{Structured Programming (Imperative)}
+        \begin{itemize}
+            \item The code is a sequence of instructions.
+            \item Focuses on control flow: loops, conditions, and functions.
+            \item \textit{Note: This is the primary paradigm we will use to build logic in this course.}
+        \end{itemize}
+        
+        \vspace{0.3cm}
+        
+        \item \textbf{Object-Oriented Programming (OOP)}
+        \begin{itemize}
+            \item Data and functions are bundled together into "Objects".
+            \item Useful for large systems, but adds complexity.
+        \end{itemize}
+    \end{enumerate}
+\end{frame}
+
+\end{document}
